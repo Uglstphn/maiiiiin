@@ -2,15 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 
-
 app = Flask(__name__)
 CORS(app)
-
 
 @app.route('/', methods=['OPTIONS'])
 def options():
     return '', 200  # Возвращаем статус 200 для OPTIONS запроса
-
 
 @app.route("/proxy", methods=["POST"])
 def proxy():
