@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import requests
 
 app = Flask(__name__)
@@ -29,6 +29,7 @@ def home():
 
 
 @app.route("/proxy", methods=["POST"])
+@cross_origin()
 def proxy():
     data = request.json
     if not data:
