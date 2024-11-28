@@ -9,6 +9,25 @@ CORS(app)
 def options():
     return '', 200  # Возвращаем статус 200 для OPTIONS запроса
 
+
+@app.route('/hello')
+def home():
+    return '''
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Простое Flask приложение</title>
+    </head>
+    <body>
+        <h1>Добро пожаловать в Flask!</h1>
+        <p>Это простое приложение, отображающее HTML-страницу.</p>
+    </body>
+    </html>
+    '''
+
+
 @app.route("/proxy", methods=["POST"])
 def proxy():
     data = request.json
