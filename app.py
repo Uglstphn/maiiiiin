@@ -4,6 +4,8 @@ import requests
 
 app = Flask(__name__)
 CORS(app)
+CORS(app, resources={r"/proxy": {"origins": "http://maiiiiin-lxnm5lopl-uglstphns-projects.vercel.app"}})
+
 
 @app.route('/', methods=['OPTIONS'])
 def options():
